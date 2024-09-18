@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://3u7i4c02ilw4"]
+
+[ext_resource type="Script" path="res://Scenes/Enemy.gd" id="1_b52oj"]
+[ext_resource type="Texture2D" uid="uid://bm7ts1javl6ge" path="res://kenney_top-down-shooter/PNG/Zombie 1/zoimbie1_hold.png" id="2_fcsfb"]
+[ext_resource type="AudioStream" uid="uid://6vg332ep3vws" path="res://Audio/555425__tonsil5__zombie-pain-6.wav" id="3_77ux8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fqalk"]
+radius = 16.0
+height = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_prcl6"]
+radius = 2405.28
+
+[node name="Enemy" type="Area2D" groups=["Death"]]
+script = ExtResource("1_b52oj")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-8, -21, -7, 20, -2839, 49, -2841, -45)
+
+[node name="Zombie" type="Sprite2D" parent="."]
+texture = ExtResource("2_fcsfb")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_fqalk")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="Area" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_prcl6")
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_77ux8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_area_2d_area_entered"]

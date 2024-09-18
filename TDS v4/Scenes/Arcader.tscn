@@ -1,0 +1,247 @@
+[gd_scene load_steps=18 format=3 uid="uid://b0qoqra4lydyq"]
+
+[ext_resource type="Script" path="res://Scenes/Arcader.gd" id="1_twrld"]
+[ext_resource type="Texture2D" uid="uid://yy8tg7bbsx02" path="res://kenney_top-down-shooter/PNG/Hitman 1/Black.png" id="2_2fc3i"]
+[ext_resource type="Texture2D" uid="uid://br3xvopstrc36" path="res://kenney_top-down-shooter/black gradient 2.png" id="2_8acdx"]
+[ext_resource type="Texture2D" uid="uid://duttdhu0pfdtt" path="res://kenney_top-down-shooter/PNG/Tiles/tile_291.png" id="2_kllmm"]
+[ext_resource type="Texture2D" uid="uid://qcoe5l2a0val" path="res://kenney_top-down-shooter/PNG/Hitman 1/Black.webp" id="3_ku8w8"]
+[ext_resource type="Texture2D" uid="uid://v7xca1hwri47" path="res://kenney_top-down-shooter/PNG/Hitman 1/hitman1_gun.png" id="4_l4sqv"]
+[ext_resource type="Texture2D" uid="uid://cp0wbvku25aqh" path="res://kenney_top-down-shooter/PNG/Tiles/tile_316.png" id="5_pt0e2"]
+[ext_resource type="Texture2D" uid="uid://dud7uek3x5ay3" path="res://kenney_top-down-shooter/PNG/Tiles/tile_317.png" id="6_bd2x3"]
+[ext_resource type="Texture2D" uid="uid://djbm321lmxlc5" path="res://kenney_top-down-shooter/PNG/Tiles/tile_187.png" id="7_y503d"]
+[ext_resource type="AudioStream" uid="uid://duhwnrn5cxwx4" path="res://Audio/708611__neverak__forest-night-ambience-stereo-48khz-24bit-220-owi.wav" id="8_psv8c"]
+[ext_resource type="AudioStream" uid="uid://r7dybbp2kwlk" path="res://Audio/464528__pcmac__gun_reload.wav" id="9_cc6uv"]
+[ext_resource type="AudioStream" uid="uid://crs71lqybh1lh" path="res://Audio/182273__martian__gun-for-ghose.wav" id="10_pbi6h"]
+[ext_resource type="AudioStream" uid="uid://dhpy3gusqn27x" path="res://Audio/518155__lukeo135__zombie-bite.wav" id="11_d0roj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kbjde"]
+radius = 13.0
+height = 44.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8g8h6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pt0e2")
+}],
+"loop": true,
+"name": &"Alive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_bd2x3")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gj3n6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pt0e2")
+}],
+"loop": true,
+"name": &"Alive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_bd2x3")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xlpl7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pt0e2")
+}],
+"loop": true,
+"name": &"Alive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_bd2x3")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_twrld")
+
+[node name="Bullet" type="Sprite2D" parent="."]
+position = Vector2(16, 4)
+rotation = -0.904081
+scale = Vector2(0.409094, 0.409094)
+texture = ExtResource("2_kllmm")
+
+[node name="Bullet2" type="Sprite2D" parent="."]
+position = Vector2(16, 4)
+rotation = -0.904081
+scale = Vector2(0.409094, 0.409094)
+texture = ExtResource("2_kllmm")
+
+[node name="Bullet3" type="Sprite2D" parent="."]
+position = Vector2(16, 4)
+rotation = -0.904081
+scale = Vector2(0.409094, 0.409094)
+texture = ExtResource("2_kllmm")
+
+[node name="SBullet" type="Sprite2D" parent="."]
+position = Vector2(16, 4)
+rotation = -0.904081
+scale = Vector2(0.409094, 0.409094)
+texture = ExtResource("2_kllmm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 7.62939e-06)
+scale = Vector2(0.28019, 0.243197)
+texture = ExtResource("2_8acdx")
+
+[node name="Flashlight" type="Sprite2D" parent="."]
+position = Vector2(-582.867, 8.00237)
+rotation = 3.14159
+scale = Vector2(17.3095, 6.95674)
+texture = ExtResource("3_ku8w8")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Dark"]]
+
+[node name="Dark 1" type="Sprite2D" parent="Area2D"]
+position = Vector2(1403.38, 1281.59)
+rotation = 0.349066
+scale = Vector2(2.70882, 1.12108)
+texture = ExtResource("2_2fc3i")
+
+[node name="Dark 4" type="Sprite2D" parent="Area2D"]
+position = Vector2(1403.38, -1265)
+rotation = 2.79253
+scale = Vector2(2.70882, 1.12108)
+texture = ExtResource("2_2fc3i")
+
+[node name="Dark 3" type="Sprite2D" parent="Area2D"]
+position = Vector2(-753.501, 62)
+scale = Vector2(1.0662, 3.57788)
+texture = ExtResource("2_2fc3i")
+
+[node name="Dark 2" type="Sprite2D" parent="Area2D"]
+position = Vector2(-96, -140)
+rotation = -0.349066
+scale = Vector2(0.237548, 0.164494)
+texture = ExtResource("2_2fc3i")
+
+[node name="Dark 5" type="Sprite2D" parent="Area2D"]
+position = Vector2(-81, 148)
+rotation = 0.349066
+scale = Vector2(0.237548, 0.164494)
+texture = ExtResource("2_2fc3i")
+
+[node name="Dark 6" type="Sprite2D" parent="Area2D"]
+position = Vector2(-127, -112)
+rotation = -0.785398
+scale = Vector2(0.237548, 0.164494)
+texture = ExtResource("2_2fc3i")
+
+[node name="Dark 7" type="Sprite2D" parent="Area2D"]
+position = Vector2(-143, 100)
+rotation = 0.785398
+scale = Vector2(0.237548, 0.164494)
+texture = ExtResource("2_2fc3i")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(15, 3, -10, -72, -75, -51, -93, 21, -22, 77, 0, 82, 19, 23, 1892.71, 708.903, 1919, -746, 3968, -1429, 3316, 1216, 1919.83, 718.828, 3237, 1201, 2786, 2495, -97, 1459, -97, 2335, -1421, 2335, -1413, -2206, -111, -2188, -70, -1447, 2758, -2493, 3250, -1190)
+
+[node name="Character" type="Sprite2D" parent="."]
+texture = ExtResource("4_l4sqv")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-9, 0)
+shape = SubResource("CapsuleShape2D_kbjde")
+
+[node name="Camera" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+
+[node name="Hitbox" type="Area2D" parent="." groups=["Player"]]
+
+[node name="Area" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-9, 0)
+shape = SubResource("CapsuleShape2D_kbjde")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Sacrafice" type="Panel" parent="HUD"]
+offset_left = 1151.0
+offset_top = 647.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Time" type="Label" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 50
+
+[node name="Longest_Time" type="Label" parent="HUD"]
+offset_top = 108.0
+offset_right = 40.0
+offset_bottom = 177.0
+theme_override_font_sizes/font_size = 50
+
+[node name="Ammo_Count" type="Label" parent="HUD"]
+offset_left = 90.5002
+offset_top = 949.5
+offset_right = 266.5
+offset_bottom = 1018.5
+theme_override_font_sizes/font_size = 50
+
+[node name="Health_1" type="AnimatedSprite2D" parent="HUD"]
+position = Vector2(1784, 35)
+sprite_frames = SubResource("SpriteFrames_8g8h6")
+animation = &"Alive"
+
+[node name="Health_2" type="AnimatedSprite2D" parent="HUD"]
+position = Vector2(1833, 35)
+sprite_frames = SubResource("SpriteFrames_gj3n6")
+animation = &"Alive"
+
+[node name="Health_3" type="AnimatedSprite2D" parent="HUD"]
+position = Vector2(1883, 35)
+sprite_frames = SubResource("SpriteFrames_xlpl7")
+animation = &"Alive"
+
+[node name="Ammo" type="Sprite2D" parent="HUD"]
+position = Vector2(58.5002, 984.5)
+scale = Vector2(2.76563, 2.76563)
+texture = ExtResource("7_y503d")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_psv8c")
+autoplay = true
+
+[node name="Reload" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_cc6uv")
+
+[node name="Shot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_pbi6h")
+volume_db = -15.0
+
+[node name="Bite" type="AudioStreamPlayer" parent="."]
+process_priority = 1
+stream = ExtResource("11_d0roj")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Hitbox" to="." method="_on_area_2d_area_exited"]
+[connection signal="finished" from="BGM" to="." method="_on_bgm_finished"]
